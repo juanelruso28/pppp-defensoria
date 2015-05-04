@@ -34,6 +34,7 @@
 </head>
 <body>
 
+<?php echo Yii::app()->user->ui->displayErrorConsole(); ?> Más información aquí
 
 <section class="inverse-bg">
 	<div class="container">
@@ -59,7 +60,8 @@
 				
 				<div class="nav-collapse collapse pull-right"> 
 
-				<?php $this->widget('zii.widgets.CMenu',array(
+				<?php /*
+				$this->widget('zii.widgets.CMenu',array(
 					//paso la clase de estilo al menú. Utilizo la prop htmlOptions
 					'htmlOptions'=>array("class"=>"nav"),
 					'items'=>array(
@@ -69,7 +71,27 @@
 						array('label'=>'Iniciar sesion', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 						array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 					),
-				)); ?>						
+				)); */?>			
+				
+				
+				<?php $this->widget('zii.widgets.CMenu',array(
+					//paso la clase de estilo al menú. Utilizo la prop htmlOptions
+					'htmlOptions'=>array("class"=>"nav"),						
+					'items'=>array(							
+						array('label'=>'Home', 'url'=>array('/site/index')),
+						array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+						array('label'=>'Contact', 'url'=>array('/site/contact')),
+						array('label'=>'Administrar Usuarios'
+							, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
+							, 'visible'=>!Yii::app()->user->isGuest),
+						array('label'=>'Login'
+							, 'url'=>Yii::app()->user->ui->loginUrl
+							, 'visible'=>Yii::app()->user->isGuest),
+						array('label'=>'Logout ('.Yii::app()->user->name.')'
+							, 'url'=>Yii::app()->user->ui->logoutUrl
+							, 'visible'=>!Yii::app()->user->isGuest),
+					),
+				)); ?>
 				<!--/.nav-collapse -->
 				</div>
 			</div>
