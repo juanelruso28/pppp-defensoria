@@ -8,9 +8,12 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Sistema de Consulta de Tramites',
-
+	'language'=>'es',
+	//'sourceLanguaje'=>'es',		
+		
 	//tema que se toma como default
 	'theme'=>"classic",
+	//'theme'=>"chame_blue",		
 
 	// preloading 'log' component
 	'preload'=>array('log'),

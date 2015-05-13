@@ -3,13 +3,13 @@
 /* @var $model ContactForm */
 /* @var $form CActiveForm */
 
-$this->pageTitle=Yii::app()->name . ' - Contact Us';
+$this->pageTitle=Yii::app()->name . ' - '. Yii::t('app', 'Contact Us');
 $this->breadcrumbs=array(
-	'Contact',
+	Yii::t('app', 'Contact Us'),
 );
 ?>
 
-<h1>Contact Us</h1>
+<h1><?php echo Yii::t('app', 'Contact Us')?></h1>
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
 
@@ -75,7 +75,7 @@ If you have business inquiries or other questions, please fill out the following
 	<?php endif; ?>
 
 	<div class="buttons">
-		<?php echo CHtml::submitButton('Submit',array("class"=>"btn btn-primary btn-large")); ?>
+		<?php echo CHtml::submitButton(Yii::t('app', 'Submit'),array("class"=>"btn btn-primary btn-large")); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
